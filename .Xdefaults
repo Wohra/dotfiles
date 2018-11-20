@@ -1,0 +1,71 @@
+!!! Theme
+URxvt*font: xft:DejaVu Sans Mono for Powerline:size=7.5
+URxvt*boldFont: xft:DejaVu Sans Mono for Powerline:size=7.5
+URxvt*boldItalicFont: xft:DejaVu Sans Mono for Powerline:size=7.5:style=Oblique
+
+URxvt*foreground: #f2f2f2
+URxvt*bordercolor:green
+URxvt*background: rgba:0000/0000/0200/c900
+URxvt*depth: 32
+
+!! Colors
+! Blue
+URxvt*color4: #004f9e
+URxvt*color12: #0071ff
+
+! Green
+URxvt*color2: #8ae234
+URxvt*color10: #93ff00
+
+! Black
+URxvt*color0: #101010
+URxvt*color8: #2e3436
+
+! Red
+URxvt*color1: #cc0000
+URxvt*color9: #ff361e
+
+! Yellow
+URxvt*color3: #ffc005
+URxvt*color11: #ffd00a
+
+! Cyan
+URxvt*color6: #4bb8fd
+URxvt*color14: #34E2E2
+
+! White
+URxvt*color7: #eeeeec
+URxvt*color15: #f2f2f2
+
+
+
+!!! Misc
+! Zsh compatilibity
+URxvt*termName: rxvt-256color
+
+! Clipboard
+URxvt.keysym.C-S-c: perl:clipboard:copy
+URxvt.keysym.C-S-v: perl:clipboard:paste
+
+! Disable control-shift
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.urgentOnBell: true
+
+
+
+!!! Navigation
+URxvt.keysym.S-Up: \033[1;2A
+URxvt.keysym.S-Down: \033[1;2B
+URxvt.keysym.S-Right: \033[1;2C
+URxvt.keysym.S-Left: \033[1;2D
+URxvt.keysym.S-Home: \033[1;2H
+URxvt.keysym.S-End: \033[1;2F
+URxvt.keysym.C-Up: \033[1;5A
+URxvt.keysym.C-Down: \033[1;5B
+URxvt.keysym.C-Right: \033[1;5C
+URxvt.keysym.C-Left: \033[1;5D
+URxvt.keysym.C-S-Up: \033[1;6A
+URxvt.keysym.C-S-Down: \033[1;6B
+URxvt.keysym.C-S-Right: \033[1;6C
+URXvt.keysym.C-S-Left: \033[1;6D
