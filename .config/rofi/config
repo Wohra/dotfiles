@@ -1,0 +1,37 @@
+!! https://github.com/DaveDavenport/rofi
+!! To get a list of available options formatted as Xresources entries, run: rofi -dump-Xresources
+
+
+! Borders
+rofi.bw: 0
+
+! Colors
+rofi.color-enabled: true
+rofi.color-window: #242424, #D5D5D5, #268bd2
+rofi.color-normal: #242424, #ffffff, #242424, #268bd2, #ffffff
+rofi.color-active: #242424, #268bd2, #242424, #268bd2, #205171
+rofi.color-urgent: #242424, #f3843d, #242424, #268bd2, #ffc39c
+
+! Font
+rofi.font: mono 8
+
+! Misc
+rofi.terminal: urxvt
+rofi.run-shell-command: {terminal} -e {cmd}
+rofi.ssh-command: {terminal} -e tmux new-session {ssh-client} {host}
+
+! Display modes
+rofi.sidebar-mode: true
+
+! Scrollbar
+rofi.hide-scrollbar: true
+rofi.scroll-method: 2
+rofi.scrollbar-width: 4
+
+! Search matching algorightm (normal, regex, glob, fuzzy)
+rofi.matching: regex
+
+! Transparency
+!Not working
+!rofi.fake-background: background
+!rofi.fake-transparency: true
