@@ -8,5 +8,5 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch polybar
 for bar in "${@}" ; do
-	polybar ${bar} &
+	polybar -r ${bar} &
 done
