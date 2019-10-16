@@ -52,6 +52,8 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.urgentOnBell: true
 
+! Scrollbar
+!URxvt*scrollBar: False
 
 
 !!! Navigation
