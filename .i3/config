@@ -39,18 +39,20 @@ client.focused #242424 #d5d5d5 #242424 #000000
 ##
 # Apps
 bindsym $mod+d exec "PATH=${HOME}/.bin:${PATH} rofi -modi run,drun,ssh,window,keys -show run"
+#bindsym $mod+e exec pcmanfm
 bindsym $mod+p exec "${HOME}/.i3/bin/monitor_layout.sh --gui"
 bindsym $mod+Return exec $terminal -e tmux
-bindsym $mod+Shift+p exec "${HOME}/.i3/bin/rdp_gui_switch.sh"
-bindsym $mod+Shift+x exec "xautolock -locknow"
+
+#bindsym $mod+Shift+x exec "xautolock -locknow"
+bindsym $mod+Shift+x exec "betterlockscreen -l dim"
 
 # Print screen
 bindsym --release Print exec "flameshot gui"
 
 # Functions keys
-bindsym XF86AudioMute exec "amixer -q sset Master off >/dev/null"
-bindsym XF86AudioLowerVolume exec "amixer set Master 2%- >/dev/null"
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master on >/dev/null ; amixer set Master 2%+ >/dev/null"
+bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle >/dev/null"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -5% >/dev/null"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +5% >/dev/null"
 bindsym XF86MonBrightnessDown exec "$HOME/.i3/bin/monitor_brightness.sh -"
 bindsym XF86MonBrightnessUp exec "$HOME/.i3/bin/monitor_brightness.sh +"
 
@@ -217,8 +219,6 @@ bindsym $mod+quotedbl workspace $workspace_name_ide
 bindsym $mod+apostrophe workspace $workspace_name_editor
 bindsym $mod+parenleft workspace $workspace_name_docs
 bindsym $mod+minus workspace $workspace_name_vm
-bindsym $mod+egrave workspace $workspace_name_vm2
-bindsym $mod+underscore workspace $workspace_name_8
 
 # Right screen
 bindsym $mod2+ampersand workspace $workspace_name_dev
@@ -242,8 +242,6 @@ bindsym $mod+Shift+quotedbl move container to workspace $workspace_name_ide
 bindsym $mod+Shift+apostrophe move container to workspace $workspace_name_editor
 bindsym $mod+Shift+parenleft move container to workspace $workspace_name_docs
 bindsym $mod+Shift+minus move container to workspace $workspace_name_vm
-bindsym $mod+Shift+egrave move container to workspace $workspace_name_vm2
-bindsym $mod+Shift+underscore move container to workspace $workspace_name_8
 
 # Right screen
 bindsym $mod2+Shift+ampersand move container to workspace $workspace_name_dev
@@ -257,9 +255,12 @@ bindsym $mod2+Shift+minus move container to workspace $workspace_name_misc_right
 ## Scratchpad
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+o move scratchpad
+bindcode $mod+Shift+49 move scratchpad
 
 # Show the first scratchpad window
-bindsym $mod+o scratchpad show
+#bindsym $mod+o scratchpad show
+bindcode $mod+49 scratchpad show
+
 
 # Assign
 for_window [instance="^urxvt_scratchpad$"] floating enable, move scratchpad
@@ -270,9 +271,9 @@ for_window [instance="^urxvt_scratchpad$"] floating enable, move scratchpad
 # Modes
 ##
 mode "audio" {
-	bindsym a exec --no-startup-id i3-msg 'exec amixer set Master 2%- >/dev/null'
-	bindsym z exec --no-startup-id i3-msg 'exec amixer set Master 2%+ >/dev/null'
-	bindsym q exec --no-startup-id i3-msg 'exec amixer -q sset Master toggle >/dev/null'
+	bindsym a exec --no-startup-id i3-msg 'exec pactl set-sink-volume 0 -5% >/dev/null'
+	bindsym z exec --no-startup-id i3-msg 'exec pactl set-sink-volume 0 +5% >/dev/null'
+	bindsym q exec --no-startup-id i3-msg 'exec pactl set-sink-mute 0 toggle >/dev/null'
 
 
 	bindsym Return mode "default"
