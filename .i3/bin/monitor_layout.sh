@@ -129,7 +129,7 @@ for a in ${!MONITORS[*]} ; do
 			done
 
 			TITLES[index]="$(format_monitors_list ${ICON_SIMPLE_ARROW} ${MONITORS[a]} ${MONITORS[b]})"
-			COMMANDS[index]="xrandr --output ${MONITORS[a]} --auto --output ${MONITORS[b]} --auto --right-of ${MONITORS[a]} ${MONITORS_TO_OFF}"
+			COMMANDS[index]="xrandr --output ${MONITORS[a]} --auto --primary --output ${MONITORS[b]} --auto --right-of ${MONITORS[a]} ${MONITORS_TO_OFF}"
 			ACTIVE_MONITORS[index]="${MONITORS[a]} ${MONITORS[b]}"
 
 			index+=1
@@ -149,7 +149,7 @@ for a in ${!MONITORS[*]} ; do
 		for c in ${!MONITORS[*]} ; do
 			if [ "${a}" != "${b}" ] && [ "${a}" != "${c}" ] && [ "${b}" != "${c}" ] ; then
 				TITLES[index]="$(format_monitors_list ${ICON_SIMPLE_ARROW} ${MONITORS[a]} ${MONITORS[b]} ${MONITORS[c]})"
-				COMMANDS[index]="xrandr --output ${MONITORS[b]} --auto --output ${MONITORS[a]} --auto --left-of ${MONITORS[b]} --output ${MONITORS[c]} --auto --right-of ${MONITORS[b]}"
+				COMMANDS[index]="xrandr --output ${MONITORS[b]} --auto --primary --output ${MONITORS[a]} --auto --left-of ${MONITORS[b]} --output ${MONITORS[c]} --auto --right-of ${MONITORS[b]}"
 				ACTIVE_MONITORS[index]="${MONITORS[a]} ${MONITORS[b]} ${MONITORS[c]}"
 
 				index+=1
