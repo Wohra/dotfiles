@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export DISPLAY=:0
+
+
 is_running() {
 	matches=$(pgrep -f "${1}" -c 2> /dev/null||true)
 
@@ -10,9 +13,6 @@ is_running() {
 	return 0
 }
 
-
-# Supervisord
-supervisord -c ~/.supervisord.conf &>/dev/null &
 
 # Wallpaper
 nitrogen --restore
@@ -32,7 +32,7 @@ is_running gnome-keyring-daemon || {
 
 # Scratchpad
 is_running "urxvt -name urxvt_scratchpad" || {
-	exec urxvt -name urxvt_scratchpad -geometry 300x80 -e tmux &>/dev/null &
+	exec urxvt -name urxvt_scratchpad -geometry 240x70 -e tmux &>/dev/null &
 }
 
 # Wicd
@@ -47,7 +47,7 @@ is_running flameshot || {
 
 # SeaDrive
 is_running seadrive-gui || {
-	exec seadrive-gui &>/dev/null &
+	sleep 10s && exec seadrive-gui &>/dev/null &
 }
 
 # Compton
@@ -55,11 +55,17 @@ is_running compton || {
 	exec compton &>/dev/null &
 }
 
+# SSH Agent
+is_running ssh-agent || {
+	#exec ssh-agent &>/dev/null &
+	eval "$(ssh-agent)" &>/dev/null &
+}
+
 # Auto lock Screen
 is_running xautolock || {
 	exec xautolock -detectsleep -time 5 \
-		-locker "betterlockscreen -l dim" \
-		-notify 30 \
-		-notifier "notify-send -u critical -t 30000 'Alert' 'Locking screen in 30 seconds'" \
+		-locker 'betterlockscreen -l dim' \
+	  -notify 30 \
+		-notifier 'notify-send -u critical -t 30000 "Alert" "Locking screen in 30 seconds"' \
 		&>/dev/null &
 }
