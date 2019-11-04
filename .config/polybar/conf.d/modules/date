@@ -1,0 +1,12 @@
+type = internal/date
+
+interval = 1
+
+date = %%{F#99}%d-%m-%Y%%{F-}  %%{F#fff}%H:%M:%S%%{F-} %%{F#99}(w %V)
+date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M:%S%{F-} (week n°%V)
+
+format-underline = ${colors.white-trans}
+
+
+
+; vim:ft=dosini

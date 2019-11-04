@@ -1,0 +1,9 @@
+monitor = DP-1
+inherit = bar/common
+tray-position = 
+
+modules-left = i3
+modules-center = title
+modules-right = date
+
+; vim:ft=dosini

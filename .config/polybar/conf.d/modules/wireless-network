@@ -1,0 +1,39 @@
+type = internal/network
+interface = wlan0
+interval = 1.0
+ping-interval = 10
+
+;format-connected =  [<ramp-signal>] <label-connected>
+format-connected =  <label-connected>
+;format-connected-underline = ${colors.green}
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+; Default: %ifname% %local_ip%
+label-connected = [%essid% - %signal%%] %upspeed%  %downspeed:9% 
+label-disconnected =  down
+label-disconnected-foreground = #66
+;format-disconnected-underline = ${colors.red}
+
+ramp-signal-0 = 1/5
+ramp-signal-1 = 2/5
+ramp-signal-2 = 3/5
+ramp-signal-3 = 4/5
+ramp-signal-4 = 5/5
+
+animation-packetloss-0 = x
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = y
+animation-packetloss-1-foreground = ${colors.foreground}
+animation-packetloss-framerate = 500
+
+
+
+; vim:ft=dosini

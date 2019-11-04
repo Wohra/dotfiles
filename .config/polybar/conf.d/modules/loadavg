@@ -1,0 +1,50 @@
+type = custom/script
+
+exec = awk '{print $1" "$2" "$3}' /proc/loadavg
+
+; Conditional command that, if defined, needs to exit successfully
+; before the main exec command is invoked.
+; Default: ""
+;exec-if = pgrep -x myservice
+
+; Will the script output continous content?
+; Default: false
+tail = false
+
+; Seconds to sleep between updates
+; Default: 2 (0 if `tail = true`)
+interval = 1
+
+; Available tags:
+;   <output> - deprecated
+;   <label> (default)
+format =  <label>
+;format-background = #999
+;format-foreground = #000
+format-padding = 4
+
+; Available tokens:
+;   %output%
+; Default: %output%
+label = %output%
+
+; Available tokens:
+;   %counter%
+;   %pid%
+;
+; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c [command]"
+click-left = urxvt -e htop
+;click-middle = echo middle %counter%
+;click-right = echo right %counter%
+
+; Available tokens:
+;   %counter%
+;   %pid%
+;
+; "scroll-(up|down)" will be executed using "/usr/bin/env sh -c [command]"
+;scroll-up = echo scroll up %counter%
+;scroll-down = echo scroll down %counter%
+
+
+
+; vim:ft=dosini

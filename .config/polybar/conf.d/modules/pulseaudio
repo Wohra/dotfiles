@@ -1,0 +1,50 @@
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+;sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+;use-ui-max = false
+
+; Interval for volume increase/decrease (in percent points) (unreleased)
+; Default: 5
+interval = 3
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <label-volume> <bar-volume>
+
+label-volume = 
+label-volume-foreground = ${root.foreground}
+
+format-muted = <label-muted> <bar-volume>
+format-muted-foreground = ${colors.foreground-alt}
+
+label-muted = " "
+label-muted-foreground = #66
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.white-trans}
+bar-volume-foreground-1 = ${colors.white-trans}
+bar-volume-foreground-2 = ${colors.white-trans}
+bar-volume-foreground-3 = ${colors.white-trans}
+bar-volume-foreground-4 = ${colors.white-trans}
+bar-volume-foreground-5 = ${colors.white-trans}
+bar-volume-foreground-6 = ${colors.white-trans}
+bar-volume-gradient = false
+bar-volume-indicator = 
+bar-volume-indicator-font = 2
+bar-volume-fill = 
+bar-volume-fill-font = 2
+bar-volume-empty = 
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = #444444
+
+
+
+
+; vim:ft=dosini

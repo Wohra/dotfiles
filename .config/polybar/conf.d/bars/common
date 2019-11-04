@@ -1,0 +1,31 @@
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+width = 100%
+height = 26
+;offset-x = 1%
+;offset-y = 4
+;fixed-center = true
+radius = 4.0
+border-size = 4
+
+
+line-color = ${colors.background}
+line-size = 1
+
+spacing = 1
+padding-left = 2
+padding-right = 2
+
+font-0 = FontAwesome:size=9;2
+font-1 = NotoSans-Regular:size=8;1
+;;font-3 = Material Design Icons:size=9;3
+font-2 = Termsynu:size=8:antialias=false;1
+
+module-margin = 6
+
+underline-size = 2
+
+override-redirect = false
+
+; vim:ft=dosini

@@ -1,0 +1,33 @@
+type = internal/cpu
+interval = 1
+format = <label> <ramp-coreload>
+label = 
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 1
+ramp-coreload-0-foreground = ${colors.white-trans}
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 1
+ramp-coreload-1-foreground = ${colors.white-trans}
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 1
+ramp-coreload-2-foreground = ${colors.white-trans}
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 1
+ramp-coreload-3-foreground = ${colors.white-trans}
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 1
+ramp-coreload-4-foreground = ${colors.white-trans}
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 1
+ramp-coreload-5-foreground = ${colors.white-trans}
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 1
+ramp-coreload-6-foreground = ${colors.white-trans}
+ramp-coreload-7 = █
+ramp-coreload-7-font = 1
+ramp-coreload-7-foreground = ${colors.red}
+
+
+
+; vim:ft=dosini

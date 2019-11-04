@@ -1,0 +1,78 @@
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 10
+
+; Available tags:
+;   <label> (default)
+;   <bar-used>
+;   <bar-free>
+;   <ramp-used>
+;   <ramp-free>
+;   <bar-swap-used> (unreleased)
+;   <bar-swap-free> (unreleased)
+;   <ramp-swap-used> (unreleased)
+;   <ramp-swap-free> (unreleased)
+format = <label> <ramp-swap-used>
+
+; Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+;   %percentage_swap_used%
+;   %percentage_swap_free%
+;   %mb_swap_total%
+;   %mb_swap_free%
+;   %mb_swap_used%
+;   %gb_swap_total%
+;   %gb_swap_free%
+;   %gb_swap_used%
+label = 
+
+; Only applies if <bar-used> is used
+bar-swap-used-width = 10
+bar-swap-used-foreground-0 = ${colors.white-trans}
+bar-swap-used-foreground-1 = ${colors.white-trans}
+bar-swap-used-foreground-2 = ${colors.white-trans}
+bar-swap-used-foreground-3 = ${colors.red}
+
+bar-swap-used-indicator =
+;bar-swap-used-indicator-font = 6
+bar-swap-used-indicator-foreground = #ff
+bar-swap-used-fill = 
+;bar-swap-used-fill-font = 6
+bar-swap-used-empty = 
+;bar-swap-used-empty-font = 6
+bar-swap-used-empty-foreground = #444444
+
+; Only applies if <ramp-used> is used
+ramp-swap-used-0 = ▁
+ramp-swap-used-1 = ▂
+ramp-swap-used-2 = ▃
+ramp-swap-used-3 = ▄
+ramp-swap-used-4 = ▅
+ramp-swap-used-5 = ▆
+ramp-swap-used-6 = ▇
+ramp-swap-used-7 = █
+
+; Only applies if <ramp-swap-free> is used
+ramp-swap-free-0 = ▁
+ramp-swap-free-1 = ▂
+ramp-swap-free-2 = ▃
+ramp-swap-free-3 = ▄
+ramp-swap-free-4 = ▅
+ramp-swap-free-5 = ▆
+ramp-swap-free-6 = ▇
+ramp-swap-free-7 = █
+
+
+
+
+
+; vim:ft=dosini

@@ -1,0 +1,89 @@
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+; Use fuzzy (partial) matching on labels when assigning
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces
+; containing 'code' in the label
+; Default: false
+fuzzy-match = false
+
+#ws-icon-0 = "1. "
+#ws-icon-1 = "2. "
+#ws-icon-2 = "3. "
+#ws-icon-3 = "4. "
+#ws-icon-4 = "5. "
+#ws-icon-5 = "6. "
+#ws-icon-6 = "7. "
+#ws-icon-7 = "8. "
+#ws-icon-default = ♟
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${colors.red}
+label-mode-foreground = ${colors.foreground}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused =  %name%
+;label-focused-foreground = #000
+;label-focused-background = #99FFFFFF
+;label-focused-underline = ${colors.orange}
+label-focused-underline = #99FFFFFF
+label-focused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %name%
+label-unfocused-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %name%
+label-visible-underline = #555555
+label-visible-padding = 1
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %name%
+label-urgent-foreground = ${colors.red}
+label-urgent-background = ${colors.background}
+label-urgent-underline = ${colors.red}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 1
+label-separator-foreground = #99FFFFFF
+
+
+
+
+; vim:ft=dosini
