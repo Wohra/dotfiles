@@ -12,6 +12,7 @@ type = internal/xwindow
 ; Default: %title%
 ;;label = %title%
 ;;label-maxlen = 50
+label-maxlen = 140
 
 ; Used instead of label when there is no window title
 ; Available tokens:
