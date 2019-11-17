@@ -1,7 +1,6 @@
 #!/bin/bash
 
-export DISPLAY=:0
-
+BIN_DIR=$(dirname $0)
 
 is_running() {
 	matches=$(pgrep -f "${1}" -c 2> /dev/null||true)
@@ -25,47 +24,36 @@ is_running clipit || {
 	exec clipit &>/dev/null &
 }
 
-# Keyring
-is_running gnome-keyring-daemon || {
-	exec gnome-keyring-daemon &>/dev/null &
+# Daemon notification
+# --> lancé par monit
+#launch $HOME/install/dunst-1.0.0/dunst
+
+# Compton
+is_running '^compton$' || {
+	#exec compton -min &>/dev/null &
+	exec compton &>/dev/null &
 }
 
-# Scratchpad
-is_running "urxvt -name urxvt_scratchpad" || {
-	exec urxvt -name urxvt_scratchpad -geometry 240x70 -e tmux &>/dev/null &
+# Pulse
+#is_running pulseaudio || {
+#	exec pulseaudio --sytem=false &>/dev/null &
+#}
+
+# Network Manager applet
+is_running nm-applet || {
+	exec nm-applet -t &>/dev/null &
 }
 
-# Wicd
-is_running wicd-client || {
-	exec wicd-gtk -t &>/dev/null &
-}
-
-# Flameshot
+# Network Manager applet
 is_running flameshot || {
 	exec flameshot &>/dev/null &
 }
 
-# SeaDrive
-is_running seadrive-gui || {
-	sleep 10s && exec seadrive-gui &>/dev/null &
-}
-
-# Compton
-is_running compton || {
-	exec compton &>/dev/null &
-}
-
-# SSH Agent
-is_running ssh-agent || {
-	#exec ssh-agent &>/dev/null &
-	eval "$(ssh-agent)" &>/dev/null &
-}
-
 # Auto lock Screen
-#is_running xautolock || {
-#	exec xautolock -detectsleep -time 5 \
-#		-locker 'betterlockscreen -l dim' \
-#	  -notify 30 \
-#		-notifier 'notify-send -u critical -t 30000 "Alert" "Locking screen in 30 seconds"' \
-#		&>/dev/null &
-#}
+##is_running xautolock || {
+	##exec xautolock -detectsleep -time 5 \
+		##-locker "${BIN_DIR}/lockscreen.sh -l" \
+		##-notify 30 \
+		##-notifier "notify-send -u critical -t 30000 'Alert' 'Locking screen in 30 seconds'" \
+		##&>/dev/null &
+##}
