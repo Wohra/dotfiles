@@ -23,10 +23,14 @@ floating_modifier $mod
 ## Borders
 new_window pixel 0
 new_float pixel 0
+smart_borders on
 
 ## Gaps
 gaps inner 4
 gaps outer 4
+
+# Only enable gaps on a workspace when there is at least one container
+#smart_gaps on
 
 ## Window color
 # In order : $border $background $foreground $?
@@ -39,14 +43,13 @@ client.focused #242424 #d5d5d5 #242424 #000000
 ##
 # Apps
 bindsym $mod+d exec "PATH=${HOME}/.bin:${PATH} rofi -modi run,drun,ssh,window,keys -show run"
-#bindsym $mod+e exec pcmanfm
+bindsym $mod+o exec "pcmanfm"
 bindsym $mod+p exec "${HOME}/.config/i3/bin/monitor_layout.sh --gui"
 bindsym $mod+Shift+w exec "kill -s USR1 $(pidof deadd-notification-center)"
 bindsym $mod+Shift+p exec "${HOME}/.config/i3/bin/rdp_gui_switch.sh"
 bindsym $mod+Return exec $terminal -e tmux
 
-#bindsym $mod+Shift+x exec "xautolock -locknow"
-bindsym $mod+Shift+x exec "betterlockscreen -l dim"
+bindsym $mod+Shift+x exec "xautolock -locknow"
 
 # Print screen
 bindsym --release Print exec "flameshot gui"
